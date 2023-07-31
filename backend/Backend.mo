@@ -1,18 +1,12 @@
-actor class Backend() {
-  stable var counter = 0;
+actor SimpleStorage{
+  var storedData = 0;
 
-  // Get the current count
-  public query func get() : async Nat {
-    counter;
+  public query func getData() : async Nat{
+    return storedData;
   };
 
-  // Increment the count by one
-  public func inc() : async () {
-    counter += 1;
+  public func setData(value: Nat): async(){
+    storedData := value;
   };
 
-  // Add `n` to the current count
-  public func add(n : Nat) : async () {
-    counter += n;
-  };
 };
