@@ -6,7 +6,7 @@ function App() {
   const [value, setValue] = useState<string | number>();
   const [inputValue, setInputValue] = useState<string | number>();
 
-  const fetchCount = async () => {
+  const fetchData = async () => {
     try {
       const count = await backend.getData();
       setValue(count.toString());
@@ -21,7 +21,7 @@ function App() {
         const myBigInt = BigInt(inputValue);
         await backend.setData(myBigInt);
       }
-      await fetchCount(); // Fetch the new count
+      await fetchData(); // Fetch the new count
     }
     catch(err){
       console.error(err);
@@ -34,7 +34,7 @@ function App() {
 
   // Fetch the count on page load
   useEffect(() => {
-    fetchCount();
+    fetchData();
   }, []);
 
   return (
