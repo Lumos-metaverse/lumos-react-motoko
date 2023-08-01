@@ -8,8 +8,8 @@ function App() {
 
   const fetchData = async () => {
     try {
-      const count = await backend.getData();
-      setValue(count.toString());
+      const number = await backend.getData();
+      setValue(number.toString());
     } catch (err) {
       console.error(err);
     }
